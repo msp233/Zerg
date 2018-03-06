@@ -9,9 +9,9 @@
 namespace app\api\validate;
 
 
+use app\lib\exception\ParameterException;
 use think\Validate;
 use think\Request;
-use think\Exception;
 
 class BaseValidate extends Validate
 {
@@ -22,9 +22,22 @@ class BaseValidate extends Validate
         $params = $request->param();
         $result = $this->batch()->check($params);
         if(!$result){
-            $error = $this->error;
-            var_dump($error);
-            throw new Exception($error);
+            $err = $this->error;
+            #var_dump($err);
+            $msg = join($this->error,' ');
+            #var_dump($msg);
+            $e = new ParameterException([
+                'msg' => $msg,
+                'errorCode' => 10001
+            ]);
+            //第二种实例化 start
+            /*$e = new ParameterException();
+            $e->msg = join($this->error,' ');
+            $e->errorCode = 10002;*/
+            //第二种实例化 end
+            throw $e;
+            #var_dump($error);
+            #throw new Exception(join($err,' '));
         }else{
             return true;
         }
