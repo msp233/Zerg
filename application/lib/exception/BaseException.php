@@ -11,7 +11,7 @@ namespace app\lib\exception;
 
 use think\Exception;
 
-class BaseException
+class BaseException extends Exception
 {
     //HTTP 状态码 404 200 ...
     public $code = 400;
