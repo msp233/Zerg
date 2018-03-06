@@ -12,8 +12,7 @@ namespace app\api\validate;
 class IDMustBePostiveInt extends BaseValidate
 {
     protected $rule = [
-        'id' => 'require|number|isPositiveInteger:thinkphp',    // |isPositiveInteger 自己自定义的规则,
-        'num' => 'in:1,2,3'
+        'id' => 'require|number|isPositiveInteger:thinkphp',    // |isPositiveInteger 自己自定义的规则
     ];
     protected function isPositiveInteger($value,$rule='',$data='',$field=''){
         if(is_numeric($value) && is_int($value+0) && ($value+0)>0 ){
