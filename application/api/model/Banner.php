@@ -9,6 +9,7 @@
 namespace app\api\model;
 
 
+use think\Db;
 use think\Exception;
 
 class Banner
@@ -17,15 +18,13 @@ class Banner
      * 定义一个静态方法
      * */
     public static function getBannerByID($id){
+        var_dump('ddd');
         //TODO：根据Banner ID号 获取Banner信息
-        return null;
-        /*try
-        {
-            1/0;
-        }catch ( Exception $ex ){
-            throw $ex;
-        }
-        return 'This is Banner Info';*/
+        #$result = Db::query('select * from banner_item');
+        #$result = array('abc','bcd','dfad');
+        $result = [$id];
+        var_dump('eee');
+        return $result;
     }
 
 

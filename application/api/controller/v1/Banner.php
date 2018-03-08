@@ -27,13 +27,14 @@ class Banner
     public function getBanner($id){
         //AOP 面向切面编程
         (new IDMustBePostiveInt())->goCheck();
-
+        var_dump('aaa');
         $banner = BannerModel::getBannerByID($id);
+        var_dump('bbb');
         if(!$banner){
-            throw new Exception('内部错误');
-            #throw new BannerMissException();
+            #throw new Exception('内部错误');
+            throw new BannerMissException();
         }
-        return $banner;
+        return json($banner,200);
 
 
         /*var_dump($id);
