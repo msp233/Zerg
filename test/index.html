@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=" utf-8">
+<meta name="author" content="http://www.softwhy.com/" />
+<title>蚂蚁部落</title> 
+<style type="text/css"> 
+*{ 
+  margin:0px; 
+  padding:0px; 
+  font-size:14px; 
+} 
+ul{ 
+  list-style:none; 
+} 
+.main .nav{ 
+  width:100px; 
+  margin:0px auto; 
+  margin-top:3px; 
+} 
+.main .nav a{ 
+  width:100px; 
+  height:25px; 
+  line-height:25px; 
+  text-align:center; 
+  text-decoration:none; 
+  background-color:green; 
+  display:block; 
+} 
+.main .nav .navcontent{ 
+  display:none; 
+} 
+</style> 
+<script type="text/javascript" src="mytest/jQuery/jquery-1.8.3.js"></script> 
+<script type="text/javascript"> 
+$(document).ready(function(){ 
+  var navs=$(".nav"); 
+  var navcontents=$(".navcontent"); 
+  var navlen=navs.length; 
+   
+  $(".nav a").click(function(){ 
+    if($(this).siblings().css("display")=="none"){ 
+      $(this).siblings().css("display","block") 
+    } 
+    else{ 
+      $(this).siblings().css("display","none")  
+    }    
+  })  
+}) 
+</script> 
+</head> 
+<body> 
+<div> 
+  <ul class="main"> 
+   <li class="nav"> 
+    <a href="#">蚂蚁部落</a> 
+    <ul class="navcontent"> 
+     <li>搜索优化</li> 
+     <li>CSS专区</li> 
+     <li>ASP专区</li> 
+    </ul> 
+   </li> 
+   <li class="nav"> 
+    <a href="#">前台专区</a> 
+    <ul class="navcontent"> 
+     <li>搜索优化</li> 
+     <li>CSS专区</li> 
+     <li>ASP专区</li> 
+    </ul> 
+   </li> 
+   <li class="nav"> 
+    <a href="#">后台专区</a> 
+    <ul class="navcontent"> 
+     <li>搜索优化</li> 
+     <li>CSS专区</li> 
+     <li>ASP专区</li> 
+    </ul> 
+   </li> 
+  </ul> 
+</div> 
+</body> 
+</html>
