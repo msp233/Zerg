@@ -18,13 +18,14 @@ class BaseValidate extends Validate
     public function goCheck(){
         //获取http传入的参数
         //对这些参数做校验
+        //Request静态方法，拿到request实例对象
         $request = Request::instance();
-        $params = $request->param();
+        $params = $request->param();//拿到所有的http传入参数
         $result = $this->batch()->check($params);
         if(!$result){
             $err = $this->error;
             #var_dump($err);
-            $msg = join($this->error,' ');
+            $msg = join(' ',$this->error);
             #var_dump($msg);
             $e = new ParameterException([
                 'msg' => $msg,

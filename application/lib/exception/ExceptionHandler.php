@@ -9,7 +9,7 @@
 namespace app\lib\exception;
 
 
-#use think\Exception;
+use think\Exception;
 use think\exception\Handle;
 use think\Log;
 use think\Request;
@@ -20,24 +20,28 @@ class ExceptionHandler extends Handle
     private $code;
     private $msg;
     private $errorCode;
-    //需要返回客户端当前请求的URL路径
 
+    //需要返回客户端当前请求的URL路径
     #   \Exception 是所有异常类的基类
     public function render(\Exception $e)
     {
+        //如果继承于BaseException这个类，是用户错误，不用记入日志，否则记录日志
         if($e instanceof BaseException){
             //如果是自定义的异常
             $this->code = $e->code;
             $this->msg = $e->msg;
             $this->errorCode = $e->errorCode;
         }else{
+            /*应用调试模式 config()助手函数，用于快速地读取config.php文件中的变量信息*/
+            //或者这样 Config类
+            #Config::get('app_debug');
             if(config('app_debug')){
                 return parent::render($e);
             }else{
                 $this->code = 500;
                 $this->msg = '内部错误，不告诉你 嘿嘿';
                 $this->errorCode = 999;
-                $this->recordErrorLog($e);
+                $this->recordErrorLog($e); 
             }
         }
         $request = Request::instance();

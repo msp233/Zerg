@@ -22,6 +22,9 @@ class Banner
         #var_dump('ddd');
         //TODO：根据Banner ID号 获取Banner信息
         $result = Db::query('select * from banner_item where banner_id = ?',[$id]);
+
+        return($result);
+        //$result = Db::table('banner_item')->where('banner_id','=',$id);;
         #$result = Db::execute('select * from banner_item where img_id = ?',[$id]);
 
         /*$dsn = "mysql:host=localhost;dbname=zerg";
@@ -44,7 +47,7 @@ class Banner
 
 //PDO::FETCH_NUM 索引数组
 //PDO::FETCH_NUM 关联和索引数组 默认格式
-        return($result);
+        //return($result);
     }
 
 

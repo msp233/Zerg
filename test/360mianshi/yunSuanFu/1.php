@@ -25,4 +25,21 @@ if($a = 3 > 0 || $b = 3 > 0){
     echo $a."<br/>";
     echo $b."<hr/>";
 }
+/*
+ *
+1.用root 进入mysql后
+mysql>set password =password('123456');
+mysql>flush privileges;
+2.使用GRANT语句
+mysql>grant all on zerg.* to 'msp666'@'localhost' IDENTIFIED BY '123456'with grant option ;
+mysql>flush privileges;
+
+3.进入mysql库修改user表
+mysql>use mysql;
+mysql>update user set password=password('你的密码') where user='root';
+mysql>flush privileges
+ * */
+
 ?>
+
+

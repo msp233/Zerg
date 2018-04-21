@@ -27,7 +27,8 @@ class Banner
     public function getBanner($id){
         //AOP 面向切面编程
         (new IDMustBePostiveInt())->goCheck();
-        #var_dump('aaa');
+        #$validate = new IDMustBePostiveInt();
+        #$validate->goCheck();
         $banner = BannerModel::getBannerByID($id);
         #var_dump('bbb');
         if(!$banner){
